@@ -9,13 +9,13 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    default_config = os.path.join(get_package_share_directory('gesture_arm_demo'), 'config', 'arm.yaml')
+    default_config = os.path.join(get_package_share_directory('gesture-arm-demo'), 'config', 'arm.yaml')
     return LaunchDescription([
         DeclareLaunchArgument('config', default_value=default_config),
         DeclareLaunchArgument('port', default_value='/dev/ttyUSB0'),
         DeclareLaunchArgument('camera', default_value='0'),
         Node(
-            package='gesture_arm_demo',
+            package='gesture-arm-demo',
             executable='driver_node',
             name='arm_driver',
             output='screen',
@@ -23,14 +23,14 @@ def generate_launch_description():
                         {'port': LaunchConfiguration('port')}],
         ),
         Node(
-            package='gesture_arm_demo',
+            package='gesture-arm-demo',
             executable='gesture_detector',
             name='gesture_detector',
             output='screen',
             parameters=[{'camera_index': LaunchConfiguration('camera')}],
         ),
         Node(
-            package='gesture_arm_demo',
+            package='gesture-arm-demo',
             executable='gesture_to_motion',
             name='gesture_to_motion',
             output='screen',

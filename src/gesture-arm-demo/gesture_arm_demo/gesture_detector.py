@@ -73,7 +73,7 @@ class GestureDetector(Node):
         super().__init__('gesture_detector')
 
         default_model = os.path.join(
-            get_package_share_directory('gesture_arm_demo'), 'models', 'gesture_recognizer.task')
+            get_package_share_directory('gesture-arm-demo'), 'models', 'gesture_recognizer.task')
         p = self.declare_parameter
         self.camera_index = p('camera_index', 0).value
         model_path = p('model_path', default_model).value
