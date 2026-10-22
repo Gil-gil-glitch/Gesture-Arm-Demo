@@ -1,0 +1,36 @@
+# Settings for arm_driver. Edit this file instead of the Python code.
+# After editing, rebuild (colcon build --symlink-install avoids rebuilding for yaml changes).
+arm_driver:
+  ros__parameters:
+    port: /dev/ttyUSB0
+    baudrate: 1000000
+
+    joint_ids: [1, 2, 3, 4]      # 1 = base ... 4 = wrist
+    gripper_id: 5
+    joint_names: [joint1, joint2, joint3, joint4]
+
+    # ---- Calibration (run tools/calibrate.py to find these) ----
+    # zero_ticks: raw motor position (0-4095) when the joint is at 0 rad.
+    #   For a stock OpenManipulator-X this is 2048 for every joint (arm pointing
+    #   straight up). A modified build may differ.
+    zero_ticks: [2048, 2048, 2048, 2048]
+    # directions: 1 or -1. Flip a joint if it moves the wrong way.
+    directions: [1, 1, 1, 1]
+
+    # Soft limits in radians. Start conservative and widen once you trust them.
+    joint_min: [-1.5, -1.5, -1.5, -1.7]
+    joint_max: [ 1.5,  1.5,  1.4,  2.0]
+    home_pose: [0.0, -1.0, 0.3, 0.7]
+    move_home_on_start: true
+
+    # Gripper: raw ticks for fully open and fully closed. MUST be calibrated.
+    gripper_open_ticks: 2048
+    gripper_closed_ticks: 2048
+    gripper_goal_current: 150    # ~0.4 A. Lower = gentler grip.
+
+    # Motion smoothness. Lower values = slower, safer moves (good for demos).
+    profile_velocity: 40         # units of 0.229 rpm (0 = max speed!)
+    profile_acceleration: 10     # units of 214.577 rev/min^2
+
+    return_delay_time: 0         # faster communication than the default 250 us
+    publish_rate: 50.0           # Hz for /joint_states
