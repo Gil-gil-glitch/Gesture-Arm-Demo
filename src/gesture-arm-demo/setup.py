@@ -14,6 +14,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py') or glob('launch/*.py')),
         (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
+        (os.path.join('share', package_name, 'models'), glob('models/*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -26,6 +27,8 @@ setup(
         'console_scripts': [
             'driver_node = gesture_arm_demo.driver_node:main',
             'calibrate = tools.calibrate:main',
+            'gesture_detector = gesture_arm_demo.gesture_detector:main',
+            'gesture_to_motion = gesture_arm_demo.gesture_to_motion:main',
         ],
     },
 )
