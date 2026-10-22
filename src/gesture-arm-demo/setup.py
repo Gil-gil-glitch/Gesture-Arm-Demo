@@ -26,6 +26,8 @@ setup(
         'console_scripts': [
             'driver_node = gesture_arm_demo.driver_node:main',
             'calibrate = tools.calibrate:main',
+            'gesture_detector = gesture_arm_demo.gesture_detector:main',
+            'gesture_to_motion = gesture_arm_demo.gesture_to_motion:main',
         ],
     },
 )

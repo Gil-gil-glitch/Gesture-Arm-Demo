@@ -16,7 +16,7 @@ def generate_launch_description():
         DeclareLaunchArgument('camera', default_value='0'),
         Node(
             package='gesture_arm_demo',
-            executable='arm_driver',
+            executable='driver_node',
             name='arm_driver',
             output='screen',
             parameters=[LaunchConfiguration('config'),
