@@ -24,6 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'driver_node = gesture-arm-demo.driver_node:main',
+            
         ],
     },
 )
