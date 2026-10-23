@@ -11,8 +11,10 @@ arm_driver:
 
     # ---- Calibration (run tools/calibrate.py to find these) ----
     # zero_ticks: raw motor position (0-4095) when the joint is at 0 rad.
-    #   For a stock OpenManipulator-X this is 2048 for every joint (arm pointing
-    #   straight up). A modified build may differ.
+    #   Zero pose (OpenManipulator-X convention): base facing forward, upper arm
+    #   straight up, forearm and gripper level and pointing straight forward
+    #   (an upside-down "L"). Stock value is 2048 for every joint.
+    #   This is a geometric reference, NOT the rest pose. The rest pose is home_pose.
     zero_ticks: [2048, 2048, 2048, 2048]
     # directions: 1 or -1. Flip a joint if it moves the wrong way.
     directions: [1, 1, 1, 1]

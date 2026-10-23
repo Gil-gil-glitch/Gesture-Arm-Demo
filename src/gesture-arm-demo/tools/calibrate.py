@@ -5,8 +5,9 @@ move the arm by hand and read off the values for config/arm.yaml.
 
   python3 calibrate.py --port /dev/ttyUSB0
 
-1. Pose the arm at its zero position (stock OpenManipulator-X: pointing straight
-   up) and copy joint 1-4 values into zero_ticks.
+1. Pose the arm at its zero position (base facing forward, upper arm straight
+   up, forearm and gripper level and pointing forward, like an upside-down "L")
+   and copy joint 1-4 values into zero_ticks.
 2. Open the gripper fully -> gripper_open_ticks. Close it -> gripper_closed_ticks.
 3. Move each joint to its safe extremes to choose joint_min / joint_max.
 
