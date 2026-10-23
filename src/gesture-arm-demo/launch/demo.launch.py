@@ -15,7 +15,7 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    default_config = os.path.join(get_package_share_directory('gesture_arm_demo'), 'config', 'arm.yaml')
+    default_config = os.path.join(get_package_share_directory('gesture-arm-demo'), 'config', 'arm.yaml')
     mode = LaunchConfiguration('mode')
     is_gesture = IfCondition(PythonExpression(["'", mode, "' == 'gesture'"]))
     is_mimic = IfCondition(PythonExpression(["'", mode, "' == 'mimic'"]))
@@ -27,8 +27,8 @@ def generate_launch_description():
         DeclareLaunchArgument('camera', default_value='0'),
 
         Node(
-            package='gesture_arm_demo',
-            executable='arm_driver',
+            package='gesture-arm-demo',
+            executable='driver_node',
             name='arm_driver',
             output='screen',
             parameters=[LaunchConfiguration('config'),
@@ -37,7 +37,7 @@ def generate_launch_description():
 
         # ---- mode:=gesture ----
         Node(
-            package='gesture_arm_demo',
+            package='gesture-arm-demo',
             executable='gesture_detector',
             name='gesture_detector',
             output='screen',
@@ -45,7 +45,7 @@ def generate_launch_description():
             condition=is_gesture,
         ),
         Node(
-            package='gesture_arm_demo',
+            package='gesture-arm-demo',
             executable='gesture_to_motion',
             name='gesture_to_motion',
             output='screen',
@@ -54,7 +54,7 @@ def generate_launch_description():
 
         # ---- mode:=mimic ----
         Node(
-            package='gesture_arm_demo',
+            package='gesture-arm-demo',
             executable='pose_mimic',
             name='pose_mimic',
             output='screen',
