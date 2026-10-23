@@ -85,7 +85,7 @@ class PoseMimic(Node):
 
     def __init__(self):
         super().__init__('pose_mimic')
-        share = get_package_share_directory('gesture_arm_demo')
+        share = get_package_share_directory('gesture-arm-demo')   # must match package_name in setup.py
         p = self.declare_parameter
         self.camera_index = p('camera_index', 0).value
         pose_model = p('pose_model_path', os.path.join(share, 'models', 'pose_landmarker_lite.task')).value

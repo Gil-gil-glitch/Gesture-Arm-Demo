@@ -1,8 +1,8 @@
 """
 Start the whole demo.
 
-  ros2 launch gesture_arm_demo demo.launch.py                 # gesture mode (default)
-  ros2 launch gesture_arm_demo demo.launch.py mode:=mimic     # robot copies your right arm
+  ros2 launch gesture-arm-demo demo.launch.py                 # gesture mode (default)
+  ros2 launch gesture-arm-demo demo.launch.py mode:=mimic     # robot copies your right arm
 """
 import os
 
