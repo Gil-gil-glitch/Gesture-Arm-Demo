@@ -29,6 +29,7 @@ setup(
             'calibrate = tools.calibrate:main',
             'gesture_detector = gesture_arm_demo.gesture_detector:main',
             'gesture_to_motion = gesture_arm_demo.gesture_to_motion:main',
+            'pose_mimic = gesture_arm_demo.pose_mimic:main',
         ],
     },
 )
