@@ -22,7 +22,7 @@ from std_msgs.msg import Float64, Float64MultiArray, String
 # joint limits, so a bad number won't break anything.)
 # ---------------------------------------------------------------------------
 POSES = {
-    'home':       [0.0, -1.0, 0.3, 0.7],
+    'home':       [0.0, -1.842, 1.319, 0.603],   # same as home_pose in arm.yaml
     'reach':      [0.0, 0.5, -0.2, -0.3],
     'bow':        [0.0, 0.8, 0.4, 0.3],
     'wave_left':  [0.5, -0.5, -0.3, -0.2],
